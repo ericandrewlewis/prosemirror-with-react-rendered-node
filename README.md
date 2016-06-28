@@ -1,6 +1,6 @@
 # ProseMirror with a React Rendered Node
 
-Open index.html in a browser
+Open index.html in a browser. Use the "insert orange" button to insert a document node that renders as a React component.
 
 ## Local development
 
