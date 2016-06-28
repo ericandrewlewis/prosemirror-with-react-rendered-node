@@ -12,8 +12,8 @@ class Orange extends Block {
   toDOM(node) {
     if ( !node.DOM) {
       node.DOM = document.createElement("div")
-      ReactDOM.render(<OrangeComponent />, node.DOM)
     }
+    ReactDOM.render(<OrangeComponent />, node.DOM)
     return node.DOM
   }
 }
