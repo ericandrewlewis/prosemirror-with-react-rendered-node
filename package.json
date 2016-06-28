@@ -1,0 +1,22 @@
+{
+  "name": "prosemirror-with-react-rendered-nodes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "babelify": "^7.3.0",
+    "browserify": "^13.0.1",
+    "prosemirror": "^0.8.3",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "watchify": "^3.7.0"
+  }
+}
