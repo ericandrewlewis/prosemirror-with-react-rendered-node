@@ -2,9 +2,12 @@ import {Block} from "prosemirror/dist/model"
 import React from "react"
 import ReactDOM from "react-dom"
 
-class OrangeComponent extends React.Component {
+class ExampleComponent extends React.Component {
   render() {
-    return (<div style={{backgroundColor: 'orange', height: '150px'}}></div>)
+    return (
+    <div style={{backgroundColor: 'orange', textAlign: 'center', padding: '30px'}}>
+      This is a React component
+    </div>)
   }
 }
 
@@ -13,7 +16,7 @@ class Orange extends Block {
     if ( !node.DOM) {
       node.DOM = document.createElement("div")
     }
-    ReactDOM.render(<OrangeComponent />, node.DOM)
+    ReactDOM.render(<ExampleComponent />, node.DOM)
     return node.DOM
   }
 }

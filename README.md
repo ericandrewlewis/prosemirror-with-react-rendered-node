@@ -1,5 +1,7 @@
 # ProseMirror with a React Rendered Node
 
+![screen recording](screen-recording.gif?raw=true)
+
 Open index.html in a browser. Use the "insert orange" button to insert a document node that renders as a React component.
 
 ## Local development

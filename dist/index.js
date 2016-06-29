@@ -34138,7 +34138,7 @@ if (menuStyle) menuStyle.addEventListener("change", function () {
   return setMenuStyle(menuStyle.value);
 });
 
-document.querySelector(".insert-orange").addEventListener('click', function () {
+document.querySelector(".insert-a-react-component").addEventListener('click', function () {
   var node = pm.schema.nodes.orange.create();
   pm.tr.replaceSelection(node, true).apply();
 });
@@ -34268,23 +34268,23 @@ function _inherits(subClass, superClass) {
   }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
 
-var OrangeComponent = function (_React$Component) {
-  _inherits(OrangeComponent, _React$Component);
+var ExampleComponent = function (_React$Component) {
+  _inherits(ExampleComponent, _React$Component);
 
-  function OrangeComponent() {
-    _classCallCheck(this, OrangeComponent);
+  function ExampleComponent() {
+    _classCallCheck(this, ExampleComponent);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(OrangeComponent).apply(this, arguments));
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(ExampleComponent).apply(this, arguments));
   }
 
-  _createClass(OrangeComponent, [{
+  _createClass(ExampleComponent, [{
     key: "render",
     value: function render() {
-      return _react2.default.createElement("div", { style: { backgroundColor: 'orange', height: '150px' } });
+      return _react2.default.createElement("div", { style: { backgroundColor: 'orange', textAlign: 'center', padding: '30px' } }, "This is a React component");
     }
   }]);
 
-  return OrangeComponent;
+  return ExampleComponent;
 }(_react2.default.Component);
 
 var Orange = function (_Block) {
@@ -34301,8 +34301,8 @@ var Orange = function (_Block) {
     value: function toDOM(node) {
       if (!node.DOM) {
         node.DOM = document.createElement("div");
-        _reactDom2.default.render(_react2.default.createElement(OrangeComponent, null), node.DOM);
       }
+      _reactDom2.default.render(_react2.default.createElement(ExampleComponent, null), node.DOM);
       return node.DOM;
     }
   }]);
