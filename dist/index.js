@@ -34156,11 +34156,9 @@ var ExampleNode = function (_Block) {
   _createClass(ExampleNode, [{
     key: "toDOM",
     value: function toDOM(node) {
-      if (!node.DOM) {
-        node.DOM = document.createElement("div");
-      }
-      _reactDom2.default.render(_react2.default.createElement(ExampleComponent, null), node.DOM);
-      return node.DOM;
+      var dom = document.createElement("div");
+      _reactDom2.default.render(_react2.default.createElement(ExampleComponent, null), dom);
+      return dom;
     }
   }]);
 

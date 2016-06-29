@@ -13,11 +13,9 @@ class ExampleComponent extends React.Component {
 
 class ExampleNode extends Block {
   toDOM(node) {
-    if ( !node.DOM) {
-      node.DOM = document.createElement("div")
-    }
-    ReactDOM.render(<ExampleComponent />, node.DOM)
-    return node.DOM
+    let dom = document.createElement("div")
+    ReactDOM.render(<ExampleComponent />, dom)
+    return dom
   }
 }
 
