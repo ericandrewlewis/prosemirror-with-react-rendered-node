@@ -11,7 +11,7 @@ class ExampleComponent extends React.Component {
   }
 }
 
-class Orange extends Block {
+class ExampleNode extends Block {
   toDOM(node) {
     if ( !node.DOM) {
       node.DOM = document.createElement("div")
@@ -21,4 +21,4 @@ class Orange extends Block {
   }
 }
 
-exports.Orange = Orange
+exports.ExampleNode = ExampleNode

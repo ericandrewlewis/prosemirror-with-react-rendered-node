@@ -34101,6 +34101,77 @@ DOMSubscription.prototype.dispatch = function(event) {
 },{}],232:[function(require,module,exports){
 "use strict";
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _model = require("prosemirror/dist/model");
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = require("react-dom");
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ExampleComponent = function (_React$Component) {
+  _inherits(ExampleComponent, _React$Component);
+
+  function ExampleComponent() {
+    _classCallCheck(this, ExampleComponent);
+
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(ExampleComponent).apply(this, arguments));
+  }
+
+  _createClass(ExampleComponent, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "div",
+        { style: { backgroundColor: 'orange', textAlign: 'center', padding: '30px' } },
+        "This is a React component"
+      );
+    }
+  }]);
+
+  return ExampleComponent;
+}(_react2.default.Component);
+
+var ExampleNode = function (_Block) {
+  _inherits(ExampleNode, _Block);
+
+  function ExampleNode() {
+    _classCallCheck(this, ExampleNode);
+
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(ExampleNode).apply(this, arguments));
+  }
+
+  _createClass(ExampleNode, [{
+    key: "toDOM",
+    value: function toDOM(node) {
+      if (!node.DOM) {
+        node.DOM = document.createElement("div");
+      }
+      _reactDom2.default.render(_react2.default.createElement(ExampleComponent, null), node.DOM);
+      return node.DOM;
+    }
+  }]);
+
+  return ExampleNode;
+}(_model.Block);
+
+exports.ExampleNode = ExampleNode;
+
+},{"prosemirror/dist/model":65,"react":230,"react-dom":92}],233:[function(require,module,exports){
+"use strict";
+
 var _edit = require("prosemirror/dist/edit");
 
 var _schema = require("./schema");
@@ -34139,194 +34210,25 @@ if (menuStyle) menuStyle.addEventListener("change", function () {
 });
 
 document.querySelector(".insert-a-react-component").addEventListener('click', function () {
-  var node = pm.schema.nodes.orange.create();
+  var node = pm.schema.nodes.example_node.create();
   pm.tr.replaceSelection(node, true).apply();
 });
 
-},{"./schema":234,"prosemirror/dist/edit":38,"prosemirror/dist/example-setup":48,"prosemirror/dist/menu":57}],233:[function(require,module,exports){
-"use strict";
-
-var _typeof14 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
-var _typeof13 = typeof Symbol === "function" && _typeof14(Symbol.iterator) === "symbol" ? function (obj) {
-  return typeof obj === "undefined" ? "undefined" : _typeof14(obj);
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof14(obj);
-};
-
-var _typeof12 = typeof Symbol === "function" && _typeof13(Symbol.iterator) === "symbol" ? function (obj) {
-  return typeof obj === "undefined" ? "undefined" : _typeof13(obj);
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof13(obj);
-};
-
-var _typeof11 = typeof Symbol === "function" && _typeof12(Symbol.iterator) === "symbol" ? function (obj) {
-  return typeof obj === "undefined" ? "undefined" : _typeof12(obj);
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof12(obj);
-};
-
-var _typeof10 = typeof Symbol === "function" && _typeof11(Symbol.iterator) === "symbol" ? function (obj) {
-  return typeof obj === "undefined" ? "undefined" : _typeof11(obj);
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof11(obj);
-};
-
-var _typeof9 = typeof Symbol === "function" && _typeof10(Symbol.iterator) === "symbol" ? function (obj) {
-  return typeof obj === "undefined" ? "undefined" : _typeof10(obj);
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof10(obj);
-};
-
-var _typeof8 = typeof Symbol === "function" && _typeof9(Symbol.iterator) === "symbol" ? function (obj) {
-  return typeof obj === "undefined" ? "undefined" : _typeof9(obj);
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof9(obj);
-};
-
-var _typeof7 = typeof Symbol === "function" && _typeof8(Symbol.iterator) === "symbol" ? function (obj) {
-  return typeof obj === "undefined" ? "undefined" : _typeof8(obj);
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof8(obj);
-};
-
-var _typeof6 = typeof Symbol === "function" && _typeof7(Symbol.iterator) === "symbol" ? function (obj) {
-  return typeof obj === "undefined" ? "undefined" : _typeof7(obj);
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof7(obj);
-};
-
-var _typeof5 = typeof Symbol === "function" && _typeof6(Symbol.iterator) === "symbol" ? function (obj) {
-  return typeof obj === "undefined" ? "undefined" : _typeof6(obj);
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof6(obj);
-};
-
-var _typeof4 = typeof Symbol === "function" && _typeof5(Symbol.iterator) === "symbol" ? function (obj) {
-  return typeof obj === "undefined" ? "undefined" : _typeof5(obj);
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof5(obj);
-};
-
-var _typeof3 = typeof Symbol === "function" && _typeof4(Symbol.iterator) === "symbol" ? function (obj) {
-  return typeof obj === "undefined" ? "undefined" : _typeof4(obj);
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof4(obj);
-};
-
-var _typeof2 = typeof Symbol === "function" && _typeof3(Symbol.iterator) === "symbol" ? function (obj) {
-  return typeof obj === "undefined" ? "undefined" : _typeof3(obj);
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof3(obj);
-};
-
-var _typeof = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol" ? function (obj) {
-  return typeof obj === "undefined" ? "undefined" : _typeof2(obj);
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof2(obj);
-};
-
-var _createClass = function () {
-  function defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }return function (Constructor, protoProps, staticProps) {
-    if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-  };
-}();
-
-var _model = require("prosemirror/dist/model");
-
-var _react = require("react");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactDom = require("react-dom");
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj };
-}
-
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-function _possibleConstructorReturn(self, call) {
-  if (!self) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-}
-
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
-  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-}
-
-var ExampleComponent = function (_React$Component) {
-  _inherits(ExampleComponent, _React$Component);
-
-  function ExampleComponent() {
-    _classCallCheck(this, ExampleComponent);
-
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(ExampleComponent).apply(this, arguments));
-  }
-
-  _createClass(ExampleComponent, [{
-    key: "render",
-    value: function render() {
-      return _react2.default.createElement("div", { style: { backgroundColor: 'orange', textAlign: 'center', padding: '30px' } }, "This is a React component");
-    }
-  }]);
-
-  return ExampleComponent;
-}(_react2.default.Component);
-
-var Orange = function (_Block) {
-  _inherits(Orange, _Block);
-
-  function Orange() {
-    _classCallCheck(this, Orange);
-
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Orange).apply(this, arguments));
-  }
-
-  _createClass(Orange, [{
-    key: "toDOM",
-    value: function toDOM(node) {
-      if (!node.DOM) {
-        node.DOM = document.createElement("div");
-      }
-      _reactDom2.default.render(_react2.default.createElement(ExampleComponent, null), node.DOM);
-      return node.DOM;
-    }
-  }]);
-
-  return Orange;
-}(_model.Block);
-
-exports.Orange = Orange;
-
-},{"prosemirror/dist/model":65,"react":230,"react-dom":92}],234:[function(require,module,exports){
+},{"./schema":234,"prosemirror/dist/edit":38,"prosemirror/dist/example-setup":48,"prosemirror/dist/menu":57}],234:[function(require,module,exports){
 "use strict";
 
 var _schemaBasic = require("prosemirror/dist/schema-basic");
 
 var _model = require("prosemirror/dist/model");
 
-var _orange = require("./orange");
+var _exampleNode = require("./example-node");
 
 var schema = new _model.Schema({
   nodes: {
     doc: { type: _schemaBasic.Doc, content: "block+" },
 
     paragraph: { type: _schemaBasic.Paragraph, content: "inline<_>*", group: "block" },
-    orange: { type: _orange.Orange, group: "block" },
+    example_node: { type: _exampleNode.ExampleNode, group: "block" },
 
     text: { type: _model.Text, group: "inline" }
   },
@@ -34335,4 +34237,4 @@ var schema = new _model.Schema({
 });
 exports.schema = schema;
 
-},{"./orange":233,"prosemirror/dist/model":65,"prosemirror/dist/schema-basic":72}]},{},[232]);
+},{"./example-node":232,"prosemirror/dist/model":65,"prosemirror/dist/schema-basic":72}]},{},[233]);

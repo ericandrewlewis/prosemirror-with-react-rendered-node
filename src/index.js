@@ -31,6 +31,6 @@ let menuStyle = document.querySelector("#menustyle")
 if (menuStyle) menuStyle.addEventListener("change", () => setMenuStyle(menuStyle.value))
 
 document.querySelector(".insert-a-react-component").addEventListener('click', function() {
-  let node = pm.schema.nodes.orange.create()
+  let node = pm.schema.nodes.example_node.create()
   pm.tr.replaceSelection(node, true).apply()
 })
